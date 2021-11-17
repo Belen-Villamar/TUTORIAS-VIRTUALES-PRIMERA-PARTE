@@ -1,0 +1,61 @@
+--LLAVESFORANEAS
+
+alter table DESCRIPCION_TUTORIA
+   add constraint FK_DESCRIPC_RELATIONS_TUTORIA foreign key (ID_TUTORIAS)
+      references TUTORIA (ID_TUTORIAS)
+      on delete restrict on update restrict;
+
+alter table EMPRESA
+   add constraint FK_EMPRESA_RELATIONS_PROVINCI foreign key (ID_PROVINCIA)
+      references PROVINCIA (ID_PROVINCIA)
+      on delete restrict on update restrict;
+
+alter table ESTUDIANTE
+   add constraint FK_ESTUDIAN_RELATIONS_TIPO_EST foreign key (ID_TIPOESTUDIANTE)
+      references TIPO_ESTUDIANTE (ID_TIPOESTUDIANTE)
+      on delete restrict on update restrict;
+
+alter table ESTUDIANTE
+   add constraint FK_ESTUDIAN_RELATIONS_EMPRESA foreign key (ID_EMPRESA)
+      references EMPRESA (ID_EMPRESA)
+      on delete restrict on update restrict;
+
+alter table MEDIO
+   add constraint FK_MEDIO_RELATIONS_EMPRESA foreign key (ID_EMPRESA)
+      references EMPRESA (ID_EMPRESA)
+      on delete restrict on update restrict;
+
+alter table PROVINCIA
+   add constraint FK_PROVINCI_RELATIONS_PAIS foreign key (ID_PAIS)
+      references PAIS (ID_PAIS)
+      on delete restrict on update restrict;
+
+alter table RELACION
+   add constraint FK_RELACION_RELACION_ESTUDIAN foreign key (ID_ESTUDIANTE)
+      references ESTUDIANTE (ID_ESTUDIANTE)
+      on delete restrict on update restrict;
+
+alter table RELACION
+   add constraint FK_RELACION_RELACION2_DESCRIPC foreign key (ID_DESCRIPCIONTUTORIA)
+      references DESCRIPCION_TUTORIA (ID_DESCRIPCIONTUTORIA)
+      on delete restrict on update restrict;
+
+alter table TUTOR
+   add constraint FK_TUTOR_RELATIONS_TIPO_TUT foreign key (ID_TIPOTUTORES)
+      references TIPO_TUTOR (ID_TIPOTUTORES)
+      on delete restrict on update restrict;
+
+alter table TUTOR
+   add constraint FK_TUTOR_RELATIONS_EMPRESA foreign key (ID_EMPRESA)
+      references EMPRESA (ID_EMPRESA)
+      on delete restrict on update restrict;
+
+alter table TUTORIA
+   add constraint FK_TUTORIA_RELATIONS_TUTOR foreign key (ID_TUTOR)
+      references TUTOR (ID_TUTOR)
+      on delete restrict on update restrict;
+
+alter table TUTORIA
+   add constraint FK_TUTORIA_RELATIONS_MEDIO foreign key (ID_MEDIOS)
+      references MEDIO (ID_MEDIOS)
+      on delete restrict on update restrict;

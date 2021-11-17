@@ -1,0 +1,45 @@
+--CONSULTAS 
+
+--Mostrar el top descendente a todos los profesores que han dado tutorías, 
+--deben listarse primero el grupo de los tutores externos y luego los de contratación propia. 	
+        SELECT
+           nombre_tutor as nombre_tutor, 
+           count(id_tutorias) as cantidad_tutorias, 
+           tipo_contrato_tutor as tutor_interno_externo
+         FROM 
+           tutor t inner join tutoria a on t.id_tutor=a.id_tutor
+        GROUP BY 
+           nombre_tutor,tipo_contrato_tutor
+ 
+--Mostrar por año y mes cuanto la empresa ha recibido en ingresos por tutorías.	   
+	 SELECT 
+	   nombre_empresa,
+	   fecha_tutoria, 
+	   sum (costo_tutoria)
+	  FROM 
+	   tutoria b inner join medio c on b.id_medios= c.id_medios
+	   inner join empresa d on c.id_empresa= d.id_empresa
+	   Group by nombre_empresa, fecha_tutoria 
+	   	   
+-- Mostrar por país y por provincia la cantidad de estudiantes a los que el centro ha dado tutorías. 
+	  SELECT 
+	   nombre_empresa as nombre_centro, 
+	   nombre_pais, 
+	   nombre_provincia, 
+	   count (nombre_estudiante) as cantidad_estudiantes
+	  FROM estudiante e inner join empresa f on e.id_empresa= f.id_empresa
+	   inner join 
+	   provincia g on f.id_provincia= g.id_provincia
+	   inner join 
+	   pais h on g.id_pais= h.id_pais 
+	   Group by nombre_pais, nombre_provincia, nombre_empresa
+	   
+--- Mostrar por año la cantidad de propuestas de tutoría rechazadas.
+	  SELECT 
+	   fecha_tutoria, 
+	   count (*) cantidad_tutoria,
+	   estado_tutoria as propuesta
+	  FROM descripcion_tutoria i 
+	   inner join tutoria j on i.id_tutorias= j.id_tutorias
+	   where (estado_tutoria='rechazado') 
+	   Group by fecha_tutoria, estado_tutoria	 

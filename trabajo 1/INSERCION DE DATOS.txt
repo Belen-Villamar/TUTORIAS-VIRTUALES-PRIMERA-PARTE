@@ -1,0 +1,85 @@
+--INSERCIONDATOS
+
+--Insertar datos pais
+insert into pais(id_pais, nombre_pais) values
+('1012','Ecuador'), 
+('1013','México'), 
+('1014','Argentina')
+
+--Insertar datos provincia
+insert into provincia(id_provincia, id_pais, nombre_provincia) values
+('101','1012','Manabí'), 
+('102','1013','Jalisco'), 
+('103','1014','Buenos Aires')
+
+--Insertar datos empresa
+insert into empresa(id_empresa, id_provincia, nombre_empresa) values
+('115','101','software para educación'), 
+('116','102','software para educación'), 
+('117','103','software para educación')
+
+--Insertar datos medio
+insert into medio(id_medios, id_empresa, tipos_medios, costo_medio) values
+('120','115','zoom','20.00'), 
+('121','116','microsoft teams','30.00'), 
+('122','117','skype', '35.00')
+
+--Insertar tipo estudiante
+insert into tipo_estudiante(id_tipoestudiante, detalle_tipoestudiante) values
+('131','estudiantes de universidad'), 
+('132','investigadores'), 
+('133','padres de familia')
+
+--Insertar estudiante
+insert into estudiante(id_estudiante, id_tipoestudiante, id_empresa, cedula_estudiante,
+nombre_estudiante, apellido_estudiante, profesion_estudiante,
+telefono_estudiante, correo_estudiante) values
+('140','131','115','1315245769','Dayanne','Cedeño','estudiante','0969872722','dayannecedeño@gmail.com'),
+('141','132','116','1317144986','Luis','Bazurto','investigador','0934567896','luisbazurto@gmail.com'),
+('142','133','117','1358796543','María','Villamar','empresaria','0969661757','mariavillamar@gmail.com'),
+('143','131','115','1345678432','Nicole','Echeverria','estudiante','0954623458','nicoleev@gmail.com'),
+('145','132','116','1321234566','Harry','Styles','investigador','0983248448','harrito@gmail.com'),
+('146','133','117','1312121567','Marcelo','Ruiz','empresario','0949583293','marceruiz@gmail.com'),
+('147','131','115','1315987424','Daniela','Palma','estudiante','0984325835','danielapalma@gmail.com'),
+('148','131','115','1313141567','Diego','Murillo','estudiante','0942845737','murillodiego@gmail.com'),
+('149','132','116','1315467954','Mateo','Parraga','investigador','0934567832','mateoparraga@gmail.com')
+
+--Insertar tipo tutor
+insert into tipo_tutor(id_tipotutores, detalle_tipotutor, enlaces_tipotutor) values
+('170','extrangero','www.uleam.com'), 
+('171','nacional','www.utm.com'), 
+('172','nacional','www.uess.com')
+
+--Insertar tutor
+insert into tutor(id_tutor, id_tipotutores, id_empresa, cedula_tutor,
+nombre_tutor, apellido_tutor, profesion_tutor,telefono_tutor, correo_tutor, tipo_contrato_tutor, numero_tutorias) values
+('180','170','115','1369249582','Carlos','Ostaiza','ingeniero','0995847345','carlos@gmail.com','interno','0'),
+('181','171','116','1313456978','Joseph','Espinal','doctor','0956049393','josephespinal@gmail.com','externo','0'),
+('182','172','117','1312495863','Soraya','Moreira','abogada','0985748384','soraya@gmail.com','externo','0')
+
+--Insertar datos tutoria
+insert into tutoria(id_tutorias, id_medios, id_tutor, titulo_tutoria, duracion_tutoria, fecha_tutoria, 
+hora_inicio_tutoria, hora_fin_tutoria, sala_tutoria, enlace_tutoria, costo_tutoria) values
+('150','120','180','base de datos','02:00:00','2021/12/16','09:00:00','11:00:00','sala1','www.zoom.com','10.00'), 
+('151','121','181','aplicaciones web','01:30:00','2021/10/15','10:00:00','11:30:00','sala2','www.teams.com','25.00'),
+('152','122','182','interfaces y multimedia','03:00:00','2021/09/13','11:00:00','13:00:00','sala3','www.skype.com','30.00'),
+('153','120','180','base de datos','02:00:00','2021/12/18','09:00:00','11:00:00','sala1','www.zoom.com','10.00'),
+('154','120','180','base de datos','02:00:00','2021/12/20','09:00:00','11:00:00','sala1','www.zoom.com','10.00'),
+('155','121','181','aplicaciones web','01:30:00','2021/10/21','10:00:00','11:30:00','sala2','www.teams.com','25.00'),
+('156','122','182','interfaces y multimedia','03:00:00','2021/09/15','11:00:00','13:00:00','sala3','www.skype.com','30.00'),
+('157','120','180','base de datos','02:00:00','2021/12/19','09:00:00','11:00:00','sala1','www.zoom.com','10.00'),
+('158','121','181','aplicaciones web','01:30:00','2021/10/18','10:00:00','11:30:00','sala2','www.teams.com','25.00')
+
+--Insertar descripcion tutoria
+insert into descripcion_tutoria(id_descripciontutoria, id_tutorias, estado_tutoria, 
+nivel_satisfaccion_tutoria, fin_tutoria)values 
+('190','150','aceptado','satisfactorio','activa'),
+('191','151','rechazado','regular','finalizada'), 
+('192','152','aceptado','malo','activa'),
+('193','153','rechazado','regular','finalizada'),
+('194','154','rechazado','regular','finalizada'), 
+('195','155','aceptado','malo','finalizada'),
+('196','156','aceptado','satisfactorio', 'finalizada'),
+('197','157','rechazado','regular','activa'), 
+('198','158','aceptado','malo', 'finalizada')
+
